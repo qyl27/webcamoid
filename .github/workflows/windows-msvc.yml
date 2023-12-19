@@ -1,6 +1,7 @@
 name: Windows MSVC
 
-on: [push, pull_request]
+on: 
+  workflow_dispatch:
 
 env:
   QTVER: 5.15.2
@@ -32,3 +33,9 @@ jobs:
       env:
         DAILY_BUILD: 1
       run: ./ports/ci/windows-msvc/deploy.bat
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: artifacts
+        path: |
+          build
