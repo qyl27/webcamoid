@@ -28,11 +28,11 @@ jobs:
       env:
         DAILY_BUILD: 1
       run: ./ports/ci/windows-msvc/build.bat
-    - name: Daily Deploy
-      if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-      env:
-        DAILY_BUILD: 1
-      run: ./ports/ci/windows-msvc/deploy.bat
+#    - name: Daily Deploy
+#      if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+#      env:
+#        DAILY_BUILD: 1
+#      run: ./ports/ci/windows-msvc/deploy.bat
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
